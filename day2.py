@@ -35,3 +35,27 @@ else:
     int_first_digit = int(first_digit)
     int_second_digit = int(second_digit)
     print("Sum of",int_first_digit, "and" ,int_second_digit, "=",int_first_digit + int_second_digit)
+
+print("\n                 ==========Boby Mass Index calculator ==========")
+# 🚨 Don't change the code below 👇
+height = input("Enter your height in m: ")
+weight = input("Enter your weight in kg: ")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+f_height = float(height)
+f_weight = float(weight)
+BMI = f_weight / f_height ** 2
+print(BMI)
+print(int(BMI))
+
+num = 12/2.3223
+print(num)
+print(round(num))
+print(round(num, 2))
+
+print("\n                 ==========f - strings==========")
+height = 1.8
+weight = 81
+score = 24.9
+print(f"Your height is {height},Your weight is {weight}, Your score is {score}")
