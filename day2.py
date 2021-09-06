@@ -68,3 +68,13 @@ weeks_left = years_left * 52
 days_left = years_left * 365
 hours_left = days_left * 24
 print(f"You have {years_left} years left, \n{months_left} months left, \n{weeks_left} weeks left, \n{days_left} days and \n{hours_left} hours left")
+print("\n                 ==========TIp Calculator==========")
+total_bill = int(input("Total cost: "))
+people = int(input("Number of people: "))
+tip = int(input("Tip percentage: "))
+
+tip_per = tip / 100
+net_cost = total_bill + total_bill * tip_per
+each_cost = net_cost / people
+round(each_cost,2)
+print(f"Each person pays ${each_cost}")
