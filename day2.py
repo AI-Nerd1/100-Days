@@ -59,3 +59,12 @@ height = 1.8
 weight = 81
 score = 24.9
 print(f"Your height is {height},Your weight is {weight}, Your score is {score}")
+
+print("\n                 ==========Life calender==========")
+age = int(input("Your age: "))
+years_left = 90 - age
+months_left = years_left * 12
+weeks_left = years_left * 52
+days_left = years_left * 365
+hours_left = days_left * 24
+print(f"You have {years_left} years left, \n{months_left} months left, \n{weeks_left} weeks left, \n{days_left} days and \n{hours_left} hours left")
