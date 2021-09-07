@@ -1,3 +1,6 @@
+print("\n                 ==========Day 4==========")
+print("\n           ==========Randomization and Lists==========")
+print("\n\n           ==========Rock Paper Scissors==========")
 import random
 
 rock = '''
@@ -47,3 +50,22 @@ while 1>0:
         print("You win!")
     elif computer_choice == user_choice:
         print("It's a draw")
+
+import random
+
+random_integer = random.randint(0,20)
+print(f"\nRandom integer = {random_integer}\n")
+
+random_float = random.random()
+print(f"\nRandom float = {random_float}\n")
+
+random_large_float = random_integer * random_float
+print(f"\nRandom mixed number = {random_large_float}\n")
+
+
+face = random.randint(0,1)
+#?print(face)
+if face == 0:
+    print("Tails")
+else:
+    print("Heads")
