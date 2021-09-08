@@ -1,60 +1,60 @@
-print("\n                 ==========Day 5==========")
-print("\n                 ==========Loops==========")
+# print("\n                 ==========Day 5==========")
+# print("\n                 ==========Loops==========")
 
-days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+# days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
-for x in days:
-    print(x)
-
-print("\n                 ==========Height Average==========")
-height = [180, 124, 165, 173, 189, 169, 146]
-sum = 0
-count = 0
-for x in height:
-    sum += x
-    count += 1
-
-ave = sum / count
-print(f"Average Height of {count} students = {round(ave)}")
-
-
-print("\n                 ==========Highest Score==========")
-# 🚨 Don't change the code below 👇
-student_scores = input("Input a list of student scores ").split()
-for n in range(0, len(student_scores)):
-  student_scores[n] = int(student_scores[n])
-print(student_scores)
-# 🚨 Don't change the code above 👆
-
-#Write your code below this row 👇
-highest_score = 0
-for x in student_scores:
-    if x > highest_score:
-        highest_score = x
-
-print(f"The highest score in the class is: {highest_score}")
-
-
-
-print("                     ===========Even number Calculator===========")
-# for x in range(0, 10):
+# for x in days:
 #     print(x)
-even = 0
-for x in range(0, 101, 2):
-    even += x
 
-print(even)
+# print("\n                 ==========Height Average==========")
+# height = [180, 124, 165, 173, 189, 169, 146]
+# sum = 0
+# count = 0
+# for x in height:
+#     sum += x
+#     count += 1
 
-print("            ===========Fizz Buzz Generator===========")
-for x in range (1, 101):
-    if x % 15 == 0:
-        print("FizzBuzz")
-    elif x % 3 == 0:
-        print("Fizz")
-    elif x % 5 == 0:
-        print("Buzz")
-    else:
-        print(x)
+# ave = sum / count
+# print(f"Average Height of {count} students = {round(ave)}")
+
+
+# print("\n                 ==========Highest Score==========")
+# # 🚨 Don't change the code below 👇
+# student_scores = input("Input a list of student scores ").split()
+# for n in range(0, len(student_scores)):
+#   student_scores[n] = int(student_scores[n])
+# print(student_scores)
+# # 🚨 Don't change the code above 👆
+
+# #Write your code below this row 👇
+# highest_score = 0
+# for x in student_scores:
+#     if x > highest_score:
+#         highest_score = x
+
+# print(f"The highest score in the class is: {highest_score}")
+
+
+
+# print("                     ===========Even number Calculator===========")
+# # for x in range(0, 10):
+# #     print(x)
+# even = 0
+# for x in range(0, 101, 2):
+#     even += x
+
+# print(even)
+
+# print("            ===========Fizz Buzz Generator===========")
+# for x in range (1, 101):
+#     if x % 15 == 0:
+#         print("FizzBuzz")
+#     elif x % 3 == 0:
+#         print("Fizz")
+#     elif x % 5 == 0:
+#         print("Buzz")
+#     else:
+#         print(x)
 
 
 print("            ===========Password Generator Project===========")
@@ -83,24 +83,26 @@ for x in range(nr_numbers):
     E_password = random.choice(symbols)
     password1.append(E_password)
 
+
 password = "".join(password1)
 
 
 #!Hard Level - Order of characters randomised:
 #?e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
 
-password2 =[]
+passcode1 = []
 for x in range(nr_letters):
     H_password = random.choice(letters)
-    password2.append(H_password)
+    passcode1.append(H_password)
 for x in range(nr_symbols):
     H_password = random.choice(symbols)
-    password2.append(H_password)
+    passcode1.append(H_password)
 for x in range(nr_numbers):
     H_password = random.choice(numbers)
-    password2.append(H_password)
+    passcode1.append(H_password)
 
-passcode = "".join(password2)
+random.shuffle(passcode1)
+passcode = "".join(passcode1)
 
 print(f"Your suggested easy pass code is: {password}")
 print(f"Your suggested hard pass code is: {passcode}")
