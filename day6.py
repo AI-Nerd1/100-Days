@@ -129,9 +129,38 @@ while not at_goal():
     if wall_in_front():
         jump()
 done()
-    
+print("\n                 ==========Maze==========")   
+def turn_right():
+        turn_left()
+        turn_left()
+        turn_left()
 
-    
+while not at_goal():
+    while front_is_clear():
+        move()
+    if wall_in_front():
+        if right_is_clear():
+            turn_right()
+        else:
+            turn_left()
+    #if wall_on_right():
+        #turn_left()
+        
+done()
 
+def turn_right():
+        turn_left()
+        turn_left()
+        turn_left()
 
+while 1:
+    if right_is_clear():
+        turn_right()
+        move()
+    elif front_is_clear():
+        move()
+    else:
+        turn_left()
+        
+done()
     
