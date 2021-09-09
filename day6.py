@@ -57,6 +57,7 @@ for x in range(5):
 jump()
 done()
 
+print("\n                 ==========Hurdles race2==========")
 def turn_right():
         turn_left()
         turn_left()
@@ -81,3 +82,56 @@ for x in range(6):
 while not at_goal():
     jump()
 done()
+
+print("\n                 ==========Hurdles race3==========")
+while not at_goal():
+    if front_is_clear():
+        move()
+    if wall_in_front():
+        jump()
+done()
+
+print("\n                 ==========Hurdles race4==========")
+def turn_right():
+        turn_left()
+        turn_left()
+        turn_left()
+
+def jump():
+    #move()
+    turn_left()
+    move()
+    turn_right()
+    while wall_in_front():
+        turn_left()
+        move()
+        turn_right()
+    if front_is_clear():
+        move()
+        turn_right()
+        while front_is_clear():
+            move()
+    turn_left()
+    #move()
+    #turn_left()
+    
+#move()
+#for x in range(6):
+#    jump()
+#    move()
+#    if at_goal():
+#        done()
+
+
+while not at_goal():
+    if front_is_clear():
+        move()
+    if wall_in_front():
+        jump()
+done()
+    
+
+    
+
+
+    
