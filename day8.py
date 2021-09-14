@@ -28,6 +28,7 @@ greet_with("Nowhere", "Jack Bauer")
 #Calling greet_with() with Keyword Arguments
 greet_with(location="London", name="Angela")
 
+print("\n           ==========Area Calculator==========")
 def paint_calc(height, width, cover):
     cans = round((height*width)/cover)
     print(cans)
@@ -36,3 +37,21 @@ test_h = int(input("Height of wall: "))
 test_w = int(input("Width of wall: "))
 coverage = 5
 paint_calc(height=test_h, width=test_w, cover=coverage)
+
+print("\n           ==========Prime Number checker==========")
+def prime_check(n):
+    if n == 2:
+        print("It is a prime number")
+    elif n == 3:
+        print("It is a prime number")
+    elif n == 5:
+        print("It is a prime number")
+    elif n == 1:
+        print("It is a prime number")
+    elif (n%2 != 0) and (n%3 != 0) and(n%5 != 0):
+        print("It is a prime number")
+    else:
+        print("It is not a prime number")
+n = int(input("Enter Prime Number: "))
+prime_check(n)
+
