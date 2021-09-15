@@ -48,10 +48,67 @@ def prime_check(n):
         print("It is a prime number")
     elif n == 1:
         print("It is a prime number")
-    elif (n%2 != 0) and (n%3 != 0) and(n%5 != 0):
+    elif (n%2 != 0) and (n%3 != 0) and(n%5 != 0) and(n%7 != 0):
         print("It is a prime number")
     else:
         print("It is not a prime number")
 n = int(input("Enter Prime Number: "))
 prime_check(n)
+
+print("\n           ==========caesar-cipher-1==========")
+
+def ceaser_cipher(alphabet, direction, text, shift):
+    if direction == "encode":
+        for x in text:
+            y = alphabet[x] - shift
+            crypt.append(y)
+    "".join(crypt)
+    print(crypt)
+    if direction == "decode":
+        for x in text:
+            y = alphabet[x] + shift
+            decrypt.append(y)
+    "".join(decrypt)
+    print(decrypt)
+
+def encrypt(alphabet, text, shift):
+    encryption = ""
+    for x in text:
+        position = alphabet.index(x)
+        new_position = position + shift
+        new_letter = alphabet[new_position]
+        encryption += new_letter
+    print(f"Encrypted message is: {encryption}")
+
+def decrypt(alphabet, text, shift):
+    decryption = ""
+    for x in text:
+        position = alphabet.index(x)
+        new_position = position - shift
+        new_letter = alphabet[new_position]
+        decryption += new_letter
+    print(f"Decrypted message is: {decryption}")
+
+def cipher():
+    if direction == "encode":
+        encrypt(alphabet, text, shift)
+
+    if direction == "decode":
+        decrypt(alphabet, text, shift)
+
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 
+'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+ 'u', 'v', 'w', 'x', 'y', 'z',' ' ,'a', 'b', 'c', 'd', 'e', 
+'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 
+'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+text = input("Type your message:\n").lower()
+shift = int(input("Type the shift number:\n"))
+cipher()
+next = input("To try again, tap Y, else tap N: ").lower()
+if next == "y":
+    cipher()
+
+
 
