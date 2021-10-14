@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 ################### Scope ####################
+import random
 logo = """
 
                                                                     
@@ -40,7 +41,7 @@ def drink_potion():
     print(potion_strength)
 
 drink_potion()
-print(potion_strength)
+# print(potion_strength)
 
 # Global Scope
 player_health = 10
@@ -82,3 +83,62 @@ print(f"enemies outside function: {enemies}")
 PI = 3.14159
 URL = "https://www.google.com"
 TWITTER_HANDLE = "@yu_angela"
+
+number = random.randint(1,101)
+print("Welcome to Number Guessing Game")
+level = input("Choose a difficulty; Type 'easy' or 'hard': ")
+level = level.lower()
+
+
+print(f"Number = {number} ")
+def easy_mode():
+    easy_count = 10
+    game_over = False
+    while game_over is False:
+        print(f"You have {easy_count} attempts remaining to guess the number")
+        easy_count = easy_count - 1
+        guess = int(input("Make a guess: "))
+        if guess > number:
+            print("Too high")
+            if easy_count > 0:
+                print("Guess again")
+        if guess < number:
+            print("Too low")
+            if easy_count > 0:
+                print("Guess again")
+        if guess == number:
+            print("You win!!")
+            game_over = True
+        if easy_count == 0:
+            print("You ran out of attempts")
+            print("Game Over!")
+            game_over = True
+
+def hard_mode():
+    hard_count = 5
+    game_over = False
+    while game_over is False:
+        print(f"You have {hard_count} attempts remaining to guess the number")
+        hard_count = hard_count - 1
+        guess = int(input("Make a guess: "))
+        if guess > number:
+            print("Too high")
+            if hard_count > 0:
+                print("Guess again\n")
+        if guess < number:
+            print("Too low")
+            if hard_count > 0:
+                print("Guess again\n")
+        if guess == number:
+            print("You win!!")
+            game_over = True
+        if hard_count == 0:
+            print("You ran out of attempts")
+            print("Game Over!")
+            game_over = True
+        
+if level == "easy":
+    easy_mode()
+if level == "hard":
+    hard_mode()
+
