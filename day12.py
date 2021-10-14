@@ -87,10 +87,13 @@ TWITTER_HANDLE = "@yu_angela"
 number = random.randint(1,101)
 print("Welcome to Number Guessing Game")
 level = input("Choose a difficulty; Type 'easy' or 'hard': ")
+if level != 'easy' or level != 'hard':
+    print("Wrong input")
+
 level = level.lower()
 
 
-print(f"Number = {number} ")
+# print(f"Number = {number} ")
 def easy_mode():
     easy_count = 10
     game_over = False
@@ -101,17 +104,18 @@ def easy_mode():
         if guess > number:
             print("Too high")
             if easy_count > 0:
-                print("Guess again")
+                print("Guess again\n")
         if guess < number:
             print("Too low")
             if easy_count > 0:
-                print("Guess again")
+                print("Guess again\n")
         if guess == number:
             print("You win!!")
             game_over = True
         if easy_count == 0:
             print("You ran out of attempts")
             print("Game Over!")
+            print(f"\nThe number is: {number}")
             game_over = True
 
 def hard_mode():
@@ -135,6 +139,7 @@ def hard_mode():
         if hard_count == 0:
             print("You ran out of attempts")
             print("Game Over!")
+            print(f"\nThe number is: {number}")
             game_over = True
         
 if level == "easy":
