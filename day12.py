@@ -25,64 +25,64 @@ logo = """
 """
 
 print(logo)
-enemies = 1
+# enemies = 1
 
-def increase_enemies():
-    enemies = 2
-    print(f"enemies inside function: {enemies}")
+# def increase_enemies():
+#     enemies = 2
+#     print(f"enemies inside function: {enemies}")
 
-increase_enemies()
-print(f"enemies outside function: {enemies}")
+# increase_enemies()
+# print(f"enemies outside function: {enemies}")
 
-# Local Scope
+# # Local Scope
 
-def drink_potion():
-    potion_strength = 2
-    print(potion_strength)
+# def drink_potion():
+#     potion_strength = 2
+#     print(potion_strength)
 
-drink_potion()
-# print(potion_strength)
+# drink_potion()
+# # print(potion_strength)
 
-# Global Scope
-player_health = 10
+# # Global Scope
+# player_health = 10
 
-def game():
-    def drink_potion():
-        potion_strength = 2
-        print(player_health)
+# def game():
+#     def drink_potion():
+#         potion_strength = 2
+#         print(player_health)
 
-    drink_potion()
+#     drink_potion()
 
-print(player_health)
+# print(player_health)
 
-# There is no Block Scope
+# # There is no Block Scope
 
-game_level = 3
+# game_level = 3
 
-def create_enemy():
-    enemies = ["Skeleton", "Zombie", "Alien"]
-    if game_level < 5:
-        new_enemy = enemies[0]
+# def create_enemy():
+#     enemies = ["Skeleton", "Zombie", "Alien"]
+#     if game_level < 5:
+#         new_enemy = enemies[0]
 
-    print(new_enemy)
+#     print(new_enemy)
 
 
-# Modifying Global Scope
+# # Modifying Global Scope
 
-enemies = 1
+# enemies = 1
 
-def increase_enemies():
-    print(f"enemies inside function: {enemies}")
-    return enemies + 1
+# def increase_enemies():
+#     print(f"enemies inside function: {enemies}")
+#     return enemies + 1
 
-enemies = increase_enemies()
-print(f"enemies outside function: {enemies}")
+# enemies = increase_enemies()
+# print(f"enemies outside function: {enemies}")
 
-#Global Constants
+# #Global Constants
 
-PI = 3.14159
-URL = "https://www.google.com"
-TWITTER_HANDLE = "@yu_angela"
+# PI = 3.14159
+# URL = "https://www.google.com"
+# TWITTER_HANDLE = "@yu_angela"
 
 number = random.randint(1,101)
 print("Welcome to Number Guessing Game")
@@ -96,7 +96,7 @@ def easy_mode():
     game_over = False
     while game_over is False:
         print(f"You have {easy_count} attempts remaining to guess the number")
-        easy_count = easy_count - 1
+        easy_count -= 1
         guess = int(input("Make a guess: "))
         if guess > number:
             print("Too high")
