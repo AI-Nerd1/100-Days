@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# !/usr/bin/env python3
 logo = """                                                                                                                                                                                             
     ,---,                                                                                            
   .'  .' `\              ,---,                                        ,--,                           
@@ -40,3 +40,8 @@ if age > 18:
   print(f"You are elligible to drive at age {age}.")
 else:
   print(f"You are not elligible to drive at age {age}.")
+
+pages = int(input("Number of pages: "))
+words_per_page = int(input("Number of words per page: "))
+total = pages * words_per_page
+print(total)
