@@ -28,3 +28,9 @@ from random import randint
 dice_images = ['1','2','3','4','5','6']
 dice_num = randint(0,5)
 print(dice_images[dice_num])
+
+year = int(input("Your year of birth: "))
+if year > 1980 and year <= 1994:
+  print("You are a milennial")
+elif year >1994:
+  print("You are a Gen Z")
