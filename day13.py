@@ -34,3 +34,9 @@ if year > 1980 and year <= 1994:
   print("You are a milennial")
 elif year >1994:
   print("You are a Gen Z")
+
+age  = int(input("Your age: "))
+if age > 18:
+  print(f"You are elligible to drive at age {age}.")
+else:
+  print(f"You are not elligible to drive at age {age}.")
