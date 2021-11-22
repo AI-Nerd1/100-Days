@@ -34,11 +34,11 @@ resources = {
     "milk": 200,
     "coffee": 100,
 }
-
+daily_gains = 0
 def reduc(drink):
-    resources["water"] = resources["water"] - MENU[drink]["ingredents"]["water"]
-    resources["milk"] = resources["milk"] - MENU[drink]["ingredents"]["milk"]
-    resources["coffee"] = resources["coffee"] - MENU[drink]["ingredents"]["coffee"]
+    resources["water"] = resources["water"] - MENU[drink]["ingredients"]["water"]
+#   resources["milk"] = resources["milk"] - MENU[drink]["ingredients"]["milk"]
+    resources["coffee"] = resources["coffee"] - MENU[drink]["ingredients"]["coffee"]
     return resources
 
 print(logo)
@@ -79,40 +79,61 @@ def cappuccino():
         reduc("cappuccino")
         print("Just a second")
         print("Here is your cappuccino, Enjoy!")
+def payment():
+    print("Payment: ")
+    quarters = float(input("Quarters = "))
+    dimes = float(input("Dimes = "))
+    nickles = float(input("Nickles = "))
+    payment.price = float(0.25* quarters + 0.1 * dimes + 0.01 * nickles)
+    print(f"Amount paid = ${payment.price}")
+    return payment.price
 
-
-while option is not "off":
-    option = input("Select an option\nWhat would you like? \n1.Expresso\n2.Latte \n3.Cappuccino\n")
+end = False
+while end is False:
+    option = input("\n\nSelect an option\nWhat would you like? \n1.Expresso\n2.Latte \n3.Cappuccino\n")
     option = option.lower() 
-    print("payment = ")
-    quarters = input(" Quarters = ")
-    dimes = input(" Dimes = ")
-    nickles = input(" Nickles = ")
-    price = (0.25* quarters + 0.1 * dimes + 0.01 * nickles)
-    print(f"Amount paid = ${price}")
+    
     if option == '1':
-        if MENU["espresso"]["cost"] > price:
-            print("Insufficient fund, deposit $"+ MENU["espresso"]["cost"] - price,"more.")
+        payment()
+        if MENU["espresso"]["cost"] > payment.price:
+            print("Insufficient fund, deposit $", MENU["espresso"]["cost"] - payment.price,"more.")
         else:
+            print("Dispensing $", payment.price - MENU["espresso"]["cost"]," as change.")
+            daily_gains = daily_gains + payment.price
             expresso()
+
     elif option == '2':
-        if MENU["latte"]["cost"] > price:
-            print("Insufficient fund, deposit $"+ MENU["latte"]["cost"] - price,"more.")
-        elif MENU["latte"]["cost"] > price and MENU["espresso"]["cost"] < price :
-            print("Insufficient fund, deposit $"+ MENU["latte"]["cost"] - price,"more or try buying espresso.")
+        payment()
+        if MENU["latte"]["cost"] > payment.price and MENU["espresso"]["cost"] < payment.price :
+            print("Insufficient fund, deposit $", MENU["latte"]["cost"] - payment.price,"more or try buying espresso.")
+        elif MENU["latte"]["cost"] > payment.price:
+            print("Insufficient fund, deposit $", MENU["latte"]["cost"] - payment.price,"more.")
+        
         else:
+            print("Dispensing $"+ payment.price - MENU["latte"]["cost"]," as change.")
+            daily_gains = daily_gains + payment.price
             latte()
+
     elif option == '3':
-        if MENU["cappuccino"]["cost"] > price:
-            print("Insufficient fund, deposit $"+ MENU["cappuccino"]["cost"] - price,"more.")
-        elif MENU["cappuccino"]["cost"] > price and MENU["latte"]["cost"] < price :
-            print("Insufficient fund, deposit $"+ MENU["cappuccino"]["cost"] - price,"more but you can afford latte or espresso.")
-        elif MENU["cappuccino"]["cost"] > price and MENU["expresso"]["cost"] < price :
-            print("Insufficient fund, deposit $"+ MENU["cappuccino"]["cost"] - price,"more but you can afford espresso.")
-        cappuccino()
+        payment()
+        if MENU["cappuccino"]["cost"] > payment.price and MENU["latte"]["cost"] < payment.price :
+            print("Insufficient fund, deposit $", MENU["cappuccino"]["cost"] - payment.price,"more but you can afford latte or espresso.")
+        elif MENU["cappuccino"]["cost"] > payment.price and MENU["expresso"]["cost"] < payment.price :
+            print("Insufficient fund, deposit $", MENU["cappuccino"]["cost"] - payment.price,"more but you can afford espresso.")
+        elif MENU["cappuccino"]["cost"] > payment.price:
+            print("Insufficient fund, deposit $", MENU["cappuccino"]["cost"] - payment.price,"more.")
+        else:
+            print("Dispensing $", payment.price - MENU["cappuccino"]["cost"]," as change.")
+            daily_gains = daily_gains + payment.price
+            cappuccino()
+    
     elif option == 'report':
+        print(f"Profit for the day = ${daily_gains} ")
         print(resources)
     elif option == 'off':
+        end = True
+        print(f"Profit for the day = ${daily_gains} ")
+        print(resources)
         print("Machine Shutdown ")
         quit()
     else:
