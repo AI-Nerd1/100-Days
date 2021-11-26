@@ -29,7 +29,8 @@ my_screen.exitonclick()
 
 from prettytable import PrettyTable
 table = PrettyTable()
+
 table.add_column("Country",["USA", "Russia", "UK", "Nigeria", "Canada"])
 table.add_column("Capital", ["America", "Moscow","London", "Abuja", "B Columbia"])
-
+table.align = "l"
 print(table)
