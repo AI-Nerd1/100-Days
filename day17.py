@@ -49,7 +49,31 @@ player1.status_view(player2)
 # print(player1.following)
 # print(player2.followers)
 # print(player2.following)
-print(player1.view)
-print(player2.view)
-print(player1.viewed)
-print(player2.viewed)
+# print(player1.view)
+# print(player2.view)
+# print(player1.viewed)
+# print(player2.viewed)
+
+
+
+class User:
+    def __init__(self, username, id):
+        self.username = username
+        self.id = id
+        self.friends = 0
+        self.new_friend = 0
+
+    def friend(self, colleague):
+        self.friends += 1
+        colleague.new_friend +=1
+
+account1 = User("Adele", 1)
+account2 = User("Logan", 2)
+
+account1.friend(account2)
+
+print(account1.friends)
+print(account1.new_friend)
+print(account2.friends)
+print(account2.new_friend)
+
