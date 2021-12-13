@@ -8,7 +8,7 @@ cursor = Turtle()
 screen = Screen()
 bot = Turtle()
 # bot.shape("arrow")
-bot.color("white")
+bot.color("blue")
 
 # cursor.shape("turtle")
 # cursor.color("red")
@@ -119,7 +119,8 @@ turtle.colormode(255)
 screen.screensize(2000,1500)
 angles = [90,180,0,270]
 bot.speed(0)
-bot.pensize(2.5)
+
+bot.pensize(1)
 
 def rand_color():
     r = random.randint(0, 255)
@@ -132,13 +133,18 @@ colors = ["darkblue", "DarkOrange","LawnGreen", "MediumVioletRed",
  "Salmon", "DeepSkyBlue", "Red", "Yellow", "green",
   "orange", "indigo","Blue"]
 
-for x in range(1000):
-    # bot.pencolor(rand_color())
+# for x in range(1000):
+#     # bot.pencolor(rand_color())
+#     bot.pencolor(random.choice(colors))
+#     bot.rt(random.choice(angles))
+#     bot.fd(random.randint(15, 20))
+#     bot.lt(random.choice(angles))
+#     bot.fd(random.randint(15, 15))
+
+for x in range(200):
+    #bot.pencolor(rand_color())
     bot.pencolor(random.choice(colors))
-    bot.rt(random.choice(angles))
-    bot.fd(random.randint(15, 20))
-    bot.lt(random.choice(angles))
-    bot.fd(random.randint(15, 15))
-
-
+    bot.circle(100)
+    bot.setheading(bot.heading() + 2)
+   
 screen.exitonclick()
