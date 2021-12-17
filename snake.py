@@ -46,3 +46,4 @@ class Snake:
         if self.head.heading() != RIGHT:
             self.head.setheading(LEFT)
         
+
