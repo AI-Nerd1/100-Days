@@ -17,17 +17,24 @@ window.config(padx = 50, pady = 50, bg = BACKGROUND_COLOR)
     Front End Modifications here
 """
 canvas = Canvas(width = 800, height = 500)
+     
         #? card front
 card_front_image = PhotoImage(file ="/home/logan/github/100-Days/Magoosh Flashcard App/images/card_front.png")
 canvas.create_image(400, 263, image = card_front_image)
+
 #* Should be backend
 canvas.create_text(400,150,text = "word", font = ("Ariel", 40))
 #canvas.create_text(400,250,text = "meaning", font = ("liberation", 14, "italic"))
 
+#* Front button
+flip_image = PhotoImage(file ="/home/logan/github/100-Days/Magoosh Flashcard App/images/flip(1).png")
+flip_button = Button(image = flip_image)
+flip_button.grid(row=1, column=0)
+flip_button.config(bg = BACKGROUND_COLOR,border=0, highlightthickness=0)
 
         #? card back
-card_back_image = PhotoImage(file ="/home/logan/github/100-Days/Magoosh Flashcard App/images/card_back.png")
-canvas.create_image(400, 263, image = card_back_image)
+# card_back_image = PhotoImage(file ="/home/logan/github/100-Days/Magoosh Flashcard App/images/card_back.png")
+# canvas.create_image(400, 263, image = card_back_image)
 
 
 
