@@ -13,6 +13,8 @@ window.title("Flashcards")
 window.config(padx = 50, pady = 50, bg = BACKGROUND_COLOR)
 
 canvas = Canvas(width = 800, height = 500)
+card_front_image = PhotoImage(file ="/home/logan/github/100-Days/Magoosh Flashcard App/images/card_front.png")
+canvas.create_image(400, 263, image = card_front_image)
+canvas.grid(row=0, column=0)
 window.mainloop()
 
-#Branch1 Created
