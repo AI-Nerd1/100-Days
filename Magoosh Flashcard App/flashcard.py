@@ -18,3 +18,11 @@ canvas.create_image(400, 263, image = card_front_image)
 canvas.grid(row=0, column=0)
 window.mainloop()
 
+"""
+    Front End Modifications here
+"""
+
+
+"""
+    Back End Modifications here
+"""
