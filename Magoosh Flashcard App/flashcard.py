@@ -92,7 +92,6 @@ wrong_button.grid(row=1, column=0)
 wrong_button.config(bg = BACKGROUND_COLOR,border=0, highlightthickness=0, command = flip_card)
 
 window.mainloop()
-
 """
     Back End Modifications here
 """
