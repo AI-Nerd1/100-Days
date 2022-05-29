@@ -24,67 +24,69 @@ canvas = Canvas(width = 800, height = 520)
 data = pandas.read_csv("/home/logan/github/100-Days/Magoosh Flashcard App/wordlist.csv")
 to_learn = data.to_dict(orient ="records")
 current_card = {}
-
-card_word = canvas.create_text(400,230,text = "", font = ("garamond", 40, "bold"))
-card_word1 = canvas.create_text(400,150,text = "", font = ("garamond", 25, "bold"), justify= "center")
-card_meaning = canvas.create_text(400,250,text = "meaning", font = ("Ariel", 18, "italic"), justify= "left")
+# card_word = canvas.create_text(400,230,text = "", font = ("garamond", 40, "bold"))
+# card_word1 = canvas.create_text(400,150,text = "", font = ("garamond", 25, "bold"), justify= "center")
+# card_meaning = canvas.create_text(400,250,text = "meaning", font = ("Ariel", 18, "italic"), justify= "left")
 
 def next_card():
     global current_card
+    global card_word
+    global card_word1
+    global card_meaning
         #? card front
     current_card = random.choice(to_learn)
-    canvas.itemconfig(card_background, image = card_front_image)
+    card_word = canvas.create_text(400,230,text = "", font = ("garamond", 40, "bold"))
+    card_word1 = canvas.create_text(400,150,text = "", font = ("garamond", 25, "bold"), justify= "center")
+    card_meaning = canvas.create_text(400,250,text = "meaning", font = ("Ariel", 18, "italic"), justify= "left")
+    canvas.itemconfig(start.card_background, image = start.card_front_image)
     current_card = random.choice(to_learn)
     card_word = canvas.create_text(400,230,text = "", font = ("garamond", 40, "bold"))
     canvas.itemconfig(card_word, text = current_card["WORD"])
-    canvas.itemconfig(card_word1, text = "")
-    canvas.itemconfig(card_meaning, text = "")
-    right_button.config(bg = BACKGROUND_COLOR,border=0, highlightthickness=0, command= flip_card)
-    wrong_button.config(bg = BACKGROUND_COLOR,border=0, highlightthickness=0, command = flip_card)
+    canvas.itemconfig(card_word1, text = " ")
+    canvas.itemconfig(card_meaning, text = " ")
+    start.right_button.config(bg = BACKGROUND_COLOR,border=0, highlightthickness=0, command= flip_card)
+    start.wrong_button.config(bg = BACKGROUND_COLOR,border=0, highlightthickness=0, command = flip_card)
     
     
 def flip_card():
     global current_card
+    #card_word = canvas.create_text(400,230,text = "", font = ("garamond", 40, "bold"))
+    card_word1 = canvas.create_text(400,150,text = "", font = ("garamond", 25, "bold"), justify= "center")
+    card_meaning = canvas.create_text(400,250,text = "meaning", font = ("Ariel", 18, "italic"), justify= "left")
     canvas.grid(row=0, column=0)
-    canvas.itemconfig(card_background, image = card_back_image)
+    canvas.itemconfig(start.card_background, image = start.card_back_image)
     canvas.itemconfig(card_word1, text = current_card["WORD"])
     canvas.itemconfig(card_meaning, text = current_card["DEFINITION"])
-    canvas.itemconfig(card_word, text = "")
-    right_button.config(bg = BACKGROUND_COLOR,border=0, highlightthickness=0, command= next_card)
-    wrong_button.config(bg = BACKGROUND_COLOR,border=0, highlightthickness=0, command = next_card)
+    canvas.itemconfig(card_word, text = " ")
+    start.right_button.config(bg = BACKGROUND_COLOR,border=0, highlightthickness=0, command= next_card)
+    start.wrong_button.config(bg = BACKGROUND_COLOR,border=0, highlightthickness=0, command = next_card)
     #* Front button
    
-    
-    
+def start():   
+    canvas.itemconfig(card_background, image = card_front_image)
+    current_card = random.choice(to_learn)
+    card_word = canvas.create_text(400,230,text = "", font = ("garamond", 40, "bold"))
+    canvas.itemconfig(card_word, text = current_card["WORD"])
+                #? card back
+    card_front_image = PhotoImage(file ="/home/logan/github/100-Days/Magoosh Flashcard App/images/card_front.png")
+    card_back_image = PhotoImage(file ="/home/logan/github/100-Days/Magoosh Flashcard App/images/card_back.png")
+    card_background = canvas.create_image(400, 261, image = card_back_image)
+    canvas.config(bg = BACKGROUND_COLOR, highlightthickness=0)
+    canvas.grid(row=0, column=0, columnspan =2)
 
 
 
-               #? card back
-card_front_image = PhotoImage(file ="/home/logan/github/100-Days/Magoosh Flashcard App/images/card_front.png")
-card_back_image = PhotoImage(file ="/home/logan/github/100-Days/Magoosh Flashcard App/images/card_back.png")
-card_background = canvas.create_image(400, 261, image = card_back_image)
-canvas.config(bg = BACKGROUND_COLOR, highlightthickness=0)
-canvas.grid(row=0, column=0, columnspan =2)
 
-canvas.itemconfig(card_background, image = card_front_image)
-current_card = random.choice(to_learn)
-card_word = canvas.create_text(400,230,text = "", font = ("garamond", 40, "bold"))
-canvas.itemconfig(card_word, text = current_card["WORD"])
+        #* back buttons
+    right_image = PhotoImage(file ="/home/logan/github/100-Days/Magoosh Flashcard App/images/right.png")
+    right_button = Button(image = right_image)
+    right_button.grid(row=1, column=1)
+    right_button.config(bg = BACKGROUND_COLOR,border=0, highlightthickness=0, command= flip_card)
 
-
-      #* back buttons
-right_image = PhotoImage(file ="/home/logan/github/100-Days/Magoosh Flashcard App/images/right.png")
-wrong_image = PhotoImage(file ="/home/logan/github/100-Days/Magoosh Flashcard App/images/wrong.png")
-flip_image = PhotoImage(file ="/home/logan/github/100-Days/Magoosh Flashcard App/images/flip(1).png")
-
-right_button = Button(image = right_image)
-wrong_button = Button(image = wrong_image)
-
-right_button.grid(row=1, column=1)
-right_button.config(bg = BACKGROUND_COLOR,border=0, highlightthickness=0, command= flip_card)
-
-wrong_button.grid(row=1, column=0)
-wrong_button.config(bg = BACKGROUND_COLOR,border=0, highlightthickness=0, command = flip_card)
+    wrong_image = PhotoImage(file ="/home/logan/github/100-Days/Magoosh Flashcard App/images/wrong.png")
+    wrong_button = Button(image = wrong_image)
+    wrong_button.grid(row=1, column=0)
+    wrong_button.config(bg = BACKGROUND_COLOR,border=0, highlightthickness=0, command = flip_card)
 
 window.mainloop()
 
