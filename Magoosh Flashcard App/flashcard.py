@@ -32,13 +32,13 @@ current_card = {}
 def next_card():
     global current_card
         #? card front
-        
     current_card = random.choice(to_learn)
+
     card_word = canvas.create_text(400,230,text = "", font = ("garamond", 40, "bold"))
     # card_word1 = canvas.create_text(400,150,text = "", font = ("garamond", 25, "bold"), justify= "center")
     # card_meaning = canvas.create_text(400,250,text = "meaning", font = ("Ariel", 18, "italic"), justify= "left")
     canvas.itemconfig(card_background, image = card_front_image)
-    canvas.itemconfig(card_word, text = current_card["WORD"])
+    canvas.itemconfig(card_word, text = current_card["WORD"], fill= "white")
     canvas.itemconfig(card_word1, text = " ")
     canvas.itemconfig(card_meaning, text = " ")
     right_button.config(bg = BACKGROUND_COLOR,border=0, highlightthickness=0, command= flip_card)
@@ -47,7 +47,7 @@ def next_card():
     
 def flip_card():
     global current_card
-    canvas.delete(card_word)
+  
     #card_word = canvas.create_text(400,230,text = "", font = ("garamond", 40, "bold"))
     canvas.itemconfig(card_word, text = "")
     canvas.grid(row=0, column=0)
@@ -74,8 +74,8 @@ canvas.itemconfig(card_background, image = card_front_image)
 current_card = random.choice(to_learn)
 card_word = canvas.create_text(400,230,text = "", font = ("garamond", 40, "bold"))
 card_word1 = canvas.create_text(400,150,text = "", font = ("garamond", 25, "bold"), justify= "center")
-card_meaning = canvas.create_text(400,250,text = "meaning", font = ("Ariel", 18, "italic"), justify= "left")
-canvas.itemconfig(card_word, text = current_card["WORD"])
+card_meaning = canvas.create_text(400,300,text = "meaning", font = ("Ariel", 18, "italic"), justify= "left")
+canvas.itemconfig(card_word, text = current_card["WORD"], fill= "white")
 canvas.itemconfig(card_word1, text = "")
 canvas.itemconfig(card_meaning, text = "")
 
